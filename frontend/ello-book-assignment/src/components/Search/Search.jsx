@@ -6,7 +6,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import { styled } from "@mui/material/styles";
-import theme from './../../styles/theme';
 
 import SearchResult from "./SearchResult";
 
