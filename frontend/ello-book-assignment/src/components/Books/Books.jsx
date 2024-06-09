@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import BookCard from "./BookCard";
+import Search from "../Search/Search";
 
 const Books = () => {
   const { books, error, loading } = useSelector((state) => state.books);
@@ -20,8 +21,8 @@ const Books = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-xl font-bold mb-4">Books</h2>
-      <div className="flex flex-col md:flex-row gap-4">
+      <Search />
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-12 justify-center">
         {books.length > 0 ? (
           books.map((book) => (
             <BookCard key={book.coverPhotoUrl} book={book}/>
