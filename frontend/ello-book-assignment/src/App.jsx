@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 import Books from "./components/Books/Books";
 import Layout from "./components/Layout";
@@ -39,6 +40,7 @@ const App = () => {
           }
         />
       </Routes>
+      <ToastContainer />
     </Router>
   );
 };

@@ -44,22 +44,44 @@ export default function Layout({ children }) {
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, color: theme.palette.primary.white }}
               onClick={handleMenuClick}
             >
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: theme.palette.primary.white }}
+          >
             Ello Books
           </Typography>
           {!isSmallScreen && (
             <>
               <Link to="/" onClick={handleLinkClick}>
-                <Button color="inherit">Books</Button>
+                <Button
+                  sx={{
+                    color: theme.palette.primary.white,
+                    "&:hover": {
+                      color: theme.palette.primary.steelBlue,
+                    },
+                  }}
+                >
+                  Books
+                </Button>
               </Link>
               <Link to="/read-list" onClick={handleLinkClick}>
-                <Button color="inherit">Read List</Button>
+                <Button
+                  sx={{
+                    color: theme.palette.primary.white,
+                    "&:hover": {
+                      color: theme.palette.primary.steelBlue,
+                    },
+                  }}
+                >
+                  Read List
+                </Button>
               </Link>
             </>
           )}
@@ -94,10 +116,28 @@ export default function Layout({ children }) {
             <CloseIcon />
           </IconButton>
           <Link to="/" onClick={handleLinkClick}>
-            <Button color="inherit">Books</Button>
+            <Button
+              sx={{
+                color: theme.palette.primary.steelBlue,
+                "&:hover": {
+                  color: theme.palette.primary.main,
+                },
+              }}
+            >
+              Books
+            </Button>
           </Link>
           <Link to="/read-list" onClick={handleLinkClick}>
-            <Button color="inherit">Read List</Button>
+            <Button
+              sx={{
+                color: theme.palette.primary.steelBlue,
+                "&:hover": {
+                  color: theme.palette.primary.main,
+                },
+              }}
+            >
+              Read List
+            </Button>
           </Link>
         </Box>
       </Drawer>
