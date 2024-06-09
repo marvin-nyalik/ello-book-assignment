@@ -5,11 +5,9 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  IconButton,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { MoreVert } from "@mui/icons-material";
 import { getAvatarColor } from "./helpers/helper";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -18,9 +16,9 @@ const BookCard = ({ book }) => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <div className={isSmallScreen ? 'w-full': 'w-1/3'}> 
+    <div className={isSmallScreen ? 'w-full': 'w-1/4'}> 
     <Card
-      className="w-full md:w-1/3"
+      className="w-full"
     >
       <CardHeader
         avatar={
@@ -31,12 +29,7 @@ const BookCard = ({ book }) => {
             {book.readingLevel}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVert />
-          </IconButton>
-        }
-        title={book.title}
+        title={`${book.title.slice(0,20)}..`}
         subheader={book.author}
       />
       <CardMedia
