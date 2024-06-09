@@ -10,14 +10,29 @@ const query = `
       title
     }
   }`;
-const encodedQuery = encodeURIComponent(query);
 
-export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
-  const response = await axios.get(
-    `http://localhost:4000/?query=${encodedQuery}`
-  );
-  return response.data.data.books;
-});
+export const fetchBooks = createAsyncThunk(
+  "books/fetchBooks",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/",
+        {
+          query: query,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data.data;
+    } catch (error) {
+      console.error("Error fetching books:", error);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const initialState = {
   books: [],
@@ -37,7 +52,7 @@ const booksSlice = createSlice({
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
         state.loading = false;
-        state.books = action.payload;
+        state.books = action.payload.books;
       })
       .addCase(fetchBooks.rejected, (state, action) => {
         state.loading = false;
