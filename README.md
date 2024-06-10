@@ -1,85 +1,161 @@
- ![svgviewer-output](https://github.com/ElloTechnology/backend_takehome/assets/3518127/561bc8d4-bffc-4360-b9ea-61e876bcec93)
+<a name="readme-top"></a>
+
+<div align="center">
+<br/>
+
+# Ello Book Assignment App
+
+</div>
+<!-- TABLE OF CONTENTS -->
+
+## 📗 Table of Contents
+
+- [📖 Ello Book Assignment App ](#-ello-book-assignment-app-)
+  - [🛠 Built With ](#built-with)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Setup](#setup)
+    - [Install](#install)
+  - [Design Decisions ](#-design-decisions-)
+  - [👥 Author ](#-author-)
+  - [🤝 Contributing ](#-contributing-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 Ello Book Assignment <a name="ello-book-assignment-app"></a>
+
+The Ello Book Assignment App is a web application designed for teachers to search for books and manage a reading list for their students. The app uses a GraphQL endpoint to fetch book data from the backend and displays each book with its title, author, cover photo URL, and reading level.
+
+## 🛠 Built With <a name="built-with"></a>
+
+#### Tech Stack <a name="tech-stack"></a>
+
+- React: Frontend library for building user interfaces.
+- Redux Toolkit: For state management.
+- Material UI: For UI components and styling.
+- GraphQL: For querying data from the backend.
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **Search Books**: Teachers can search for books by title.
+
+- **Add Book to Reading List**: Teachers can add books to a reading list for their students.
+- **Remove Book from Reading List**: Teachers can remove books from the reading list.
+- **Responsive Design**: The app is designed to work on different screen sizes.
+- **State Management**: Redux Toolkit is used for state management.
+- **UI Components**: Material UI is used for styling and UI components.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-# Ello Engineering Challenge
+<!-- GETTING STARTED -->
 
-👋 Hello,
-We are really excited about you potentially joining the team, so we designed this take home exercise to give you a taste of the challenges you may encounter in the role, and better understand what it would be like to work closely together.
+## 💻 Getting Started <a name="getting-started"></a>
 
-Thanks for taking the time, and we hope to talk with you soon!
+To get a local copy up and running, follow these steps.
 
-## About Ello
+### Setup
 
-Ello is a forward-thinking educational technology company dedicated to revolutionizing the way children learn to read. Our mission is to empower young readers with the tools they need to become proficient and passionate readers. We believe that fostering a love for reading is essential for a child's academic and personal growth.
-
-**Note:** Please don't fork this repository or create a pull request against it. Other applicants may take inspiration from it. You should create another repository for the challenge. Once the coding challenge is completed, email your solution back to our team at [fullstack2024@ello.com](mailto:fullstack2024@ello.com).
-
-
-## Challenge
-As part of our goal to have Ello impact as many children as we can, we offer an Ello web viewer product. [https://books.ello.com](https://books.ello.com/)
-
-
-We give this to certain schools for free to allow teachers to share our books with children. 
-You are building part of the teacher-facing UI for this product,
-namely the book assignment view, where teachers can assign books to students. 
-
-The view should have the following features:-
-
-1. A search bar that allows users to search for books by title.
-2. A list of search results that displays the book title, author, and a button to add the book to the students reading list.
-3. A reading list that displays all the books that the teacher has added.
-4. A button to remove a book from the reading list.
-
-You can build this view without the concept of a "student" and just have a single reading list for the teacher.
-
-### Requirements
-- Use React as the frontend framework.
-- Showcase the use of React hooks.
-- Use [material-ui](https://mui.com/material-ui/) as the component library.
-- Write your code in the `src/frontend` directory.
-- Create components as you feel is best suited for your solution
-<img width="1013" alt="Screenshot 2024-05-15 at 19 10 51" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/bc3eb7f7-489f-4304-93f4-032bbbd38c58">
-
-
-### Data
-To get access to data that you will use for this challenge you can switch into the `src/backend` folder and run
+Clone this repository to your desired folder:
 
 ```bash
-npm install
+git clone https://github.com/marvin-nyalik/ello-book-assignment.git
 ```
 
-Then run the following command to start the server
+### Install
 
+You'll need to install dependencies for both backend and frontend projects, then start the applications independently:
+
+##### 1. Backend
 ```bash
+cd ello-book-assignment/backend
+npm install
 npm start
 ```
+- You should be able to interact with the backend server at `http://localhost:4000/`
 
-This start a Graphql server at the url `http://localhost:4000/`, the server has a single query `books` that returns a list of books. 
-
-```graphql
-query Books {
-  books {
-    author
-    coverPhotoURL
-    readingLevel
-    title
-  }
-}
+##### 2. Frontend
+```bash
+cd ello-book-assignment/frontend/ello-book-assignment
+npm install
+npm run dev
 ```
+- Open the application at `http://localhost:5173/`
 
-You can use this query to get the list of books to display in your frontend. You may need to adjust the `coverPhotoURL` to be a valid URL. The photos are in the `src/frontend/assets` directory.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Styling Guidelines
-- Use the "Mulish" Google font
-- You can use the following colors (You don't have to use all but you can pick and choose from here)
-<img width="961" alt="Screenshot 2024-05-14 at 17 36 40" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/15922f8f-a7c7-4033-8405-76988e95afb3">
+## Design Decisions <a name="design-decisions"></a>
 
+### Global State Management with Redux
 
+Using Redux for state management provides a centralized and predictable state container. This allows for:
 
+- **Consistent State Across the App**: With global state, components can access and update the state consistently without prop drilling, ensuring data consistency throughout the app.
+- **Enhanced Debugging**: Redux DevTools allows for easier tracking of state changes and debugging, making the development process more efficient.
+- **Better State Management**: Redux’s strict rules for updating the state reduce the chances of unexpected mutations, leading to more reliable and maintainable code.
 
-### You will be evaluated on
-- Code quality and organization.
-- User experience and design.
-- Beautiful and responsive UI.
+### Modular Code Organization
 
+Organizing the code in a modular way helps in:
 
+- **Scalability**: As the application grows, having a modular structure allows for adding new features or modules without affecting existing ones.
+- **Maintainability**: Each module can be developed, tested, and debugged independently, making the codebase easier to maintain.
+- **Reusability**: Modular code promotes the reusability of components and functions, reducing redundancy and effort.
+
+### Separation of Concerns with Helpers
+
+Separating concerns by using helper functions stored in dedicated files ensures that:
+
+- **Code Readability**: Keeping business logic separate from the UI components makes the code easier to read and understand.
+- **Reusability**: Common functions and constants can be reused across different application parts, promoting DRY (Don't Repeat Yourself) principles.
+- **Testability**: Isolated functions and constants are easier to test, leading to more robust and reliable code.
+
+## 👥 Author <a name="author"></a>
+
+👤 **Marvin Otieno**
+
+- [GitHub](https://github.com/marvin-nyalik)
+- [WellFound](https://wellfound.com/u/marvin-otieno)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/marvin-nyalik/ello-book-assignment/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, star it, and follow me on GitHub for more projects like this.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgments"></a>
+- The Ello team for defining the project requirements
+- Material UI for the UI components.
+- Redux Toolkit for state management.
+- GraphQL for the data querying language.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
