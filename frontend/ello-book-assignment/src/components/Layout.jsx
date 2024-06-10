@@ -10,12 +10,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import Drawer from "@mui/material/Drawer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Layout({ children }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const location = useLocation();
 
   const handleMenuClick = () => {
     setDrawerOpen(true);
@@ -30,6 +31,16 @@ export default function Layout({ children }) {
       setDrawerOpen(false);
     }
   };
+
+  const getButtonStyle = (path) => ({
+    color:
+      location.pathname === path
+        ? theme.palette.primary.steelBlue
+        : theme.palette.primary.white,
+    "&:hover": {
+      color: theme.palette.secondary.orangePastel,
+    },
+  });
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -60,28 +71,10 @@ export default function Layout({ children }) {
           {!isSmallScreen && (
             <>
               <Link to="/" onClick={handleLinkClick}>
-                <Button
-                  sx={{
-                    color: theme.palette.primary.white,
-                    "&:hover": {
-                      color: theme.palette.primary.steelBlue,
-                    },
-                  }}
-                >
-                  Books
-                </Button>
+                <Button sx={getButtonStyle("/")}>Books</Button>
               </Link>
               <Link to="/read-list" onClick={handleLinkClick}>
-                <Button
-                  sx={{
-                    color: theme.palette.primary.white,
-                    "&:hover": {
-                      color: theme.palette.primary.steelBlue,
-                    },
-                  }}
-                >
-                  Read List
-                </Button>
+                <Button sx={getButtonStyle("/read-list")}>Read List</Button>
               </Link>
             </>
           )}
@@ -116,28 +109,10 @@ export default function Layout({ children }) {
             <CloseIcon />
           </IconButton>
           <Link to="/" onClick={handleLinkClick}>
-            <Button
-              sx={{
-                color: theme.palette.primary.steelBlue,
-                "&:hover": {
-                  color: theme.palette.primary.main,
-                },
-              }}
-            >
-              Books
-            </Button>
+            <Button sx={getButtonStyle("/")}>Books</Button>
           </Link>
           <Link to="/read-list" onClick={handleLinkClick}>
-            <Button
-              sx={{
-                color: theme.palette.primary.steelBlue,
-                "&:hover": {
-                  color: theme.palette.primary.main,
-                },
-              }}
-            >
-              Read List
-            </Button>
+            <Button sx={getButtonStyle("/read-list")}>Read List</Button>
           </Link>
         </Box>
       </Drawer>

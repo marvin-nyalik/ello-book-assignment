@@ -25,9 +25,7 @@ const Loading = () => {
           width: 100,
         }}
       >
-        <CircularProgress
-          sx={{ color: theme.palette.primary.steelBlue }}
-        />
+        <CircularProgress />
       </Box>
     </div>
   );

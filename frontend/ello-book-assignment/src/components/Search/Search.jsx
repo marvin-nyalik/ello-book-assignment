@@ -10,12 +10,13 @@ import { styled } from "@mui/material/styles";
 import SearchResult from "./SearchResult";
 
 const Backdrop = styled(Box)(({ theme }) => ({
-  position: 'absolute',
+  position: "absolute",
   top: 150,
   left: 0,
   right: 0,
+  height: "100vh",
   bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
   zIndex: 10,
 }));
 
@@ -37,12 +38,12 @@ export default function Search() {
 
   useEffect(() => {
     if (query) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [query, filteredBooks]);
 
@@ -73,7 +74,7 @@ export default function Search() {
                 <ClearIcon />
               </IconButton>
             </InputAdornment>
-          )
+          ),
         }}
       />
 
@@ -82,21 +83,21 @@ export default function Search() {
           <Backdrop>
             <div
               style={{
-                width: '90%',
-                margin: '0 auto',
-                height: '70vh',
-                overflowY: 'scroll',
-                padding: '20px',
-                backgroundColor: 'white',
-                borderRadius: '8px'
+                width: "90%",
+                margin: "0 auto",
+                height: "70vh",
+                overflowY: "scroll",
+                padding: "20px",
+                backgroundColor: "white",
+                borderRadius: "8px",
               }}
             >
               {filteredBooks.length > 0 ? (
                 filteredBooks.map((book, index) => (
-                  <SearchResult key={index} book={book}/>
+                  <SearchResult key={index} book={book} />
                 ))
               ) : (
-                <div>
+                <div className="w-full h-100 flex justify-center items-center">
                   No books based on your search
                 </div>
               )}
