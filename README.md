@@ -73,15 +73,19 @@ You'll need to install dependencies for both backend and frontend projects, then
 
 ##### 1. Backend
 ```bash
-cd ello-book-assignment/backend
+cd ello-book-assignment
+cd backend
 npm install
 npm start
 ```
 - You should be able to interact with the backend server at `http://localhost:4000/`
 
 ##### 2. Frontend
+- You'll need to open another terminal
 ```bash
-cd ello-book-assignment/frontend/ello-book-assignment
+cd ello-book-assignment
+cd frontend
+cd ello-book-assignment
 npm install
 npm run dev
 ```
