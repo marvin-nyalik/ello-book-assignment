@@ -95,7 +95,9 @@ export default function Layout({ children }) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: theme.palette.background.paper,
+            backgroundColor: isSmallScreen
+              ? theme.palette.primary.main
+              : theme.palette.background.paper,
           }}
         >
           <IconButton
